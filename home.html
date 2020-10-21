@@ -17,12 +17,7 @@
   transform: scale(1.2);
     -webkit-transform: scale(1.2);
 }
-.container-view {
-  background: #FFCC5C;
-  height: 500px;
-  width: 100%;
-  position: absolute;
-}
+  
 	.nav {
 display: flex;
 flex-wrap: wrap;
@@ -32,8 +27,14 @@ background: #AAD8B0;
 z-index: 1000;
 }
 .nav a {
+color: #FFCC5C;
+width: 80px;
+height: 40px;
 text-align: center;
+color: white;
 padding-top: 20px;
+transition: all .5s;
+}
 
 }
 
@@ -45,7 +46,7 @@ font-size: 1.5em;
 
 </style>
 <body>
-<div class="container-view">
+
   <div class="nav">
     <a href="#"><i class="fas fa-home"></i></a>
     <a href="#"><i class="fas fa-concierge-bell"></i></a>
