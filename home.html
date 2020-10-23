@@ -100,6 +100,22 @@ padding-bottom: 20px;
                       font-size: 30px; font-weight: bold; text-decoration: none; color: #333; }
 .popup .close:hover { color: orange; }
 .popup .content     { max-height: 30%; overflow: auto; }
+.overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            transition: opacity 500ms;
+            visibility: visible;
+            opacity: 1;
+          }
+          .overlay:target {
+            visibility: hidden;
+            opacity: 0;
+            display:none
+          }
 </style>
 <body>
 	<div id="popup1" class="overlay">
