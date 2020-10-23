@@ -77,9 +77,41 @@ padding-bottom: 20px;
   background-color: #4CAF50;
   color: white;
 	}
+.box {
+            width: 20%;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 35px;
+            border: 2px solid #fff;
+            border-radius: 20px/50px;
+            background-clip: padding-box;
+            text-align: center;
+          }
+	.popup { position: relative;
+            margin: 70px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            width: 30%;
+            
+            transition: all 5s ease-in-out; }
 
+.popup .close       { position: absolute; top: 20px; right: 30px; transition: all 200ms;
+                      font-size: 30px; font-weight: bold; text-decoration: none; color: #333; }
+.popup .close:hover { color: orange; }
+.popup .content     { max-height: 30%; overflow: auto; }
 </style>
 <body>
+	<div id="popup1" class="overlay">
+    	<div class="popup" >
+    		<h2>Quite simple</h2>
+    		<a class="close" href="#popup1">×</a>
+    		<div class="content">
+    			Lorem ipsum dolor sit amet, consectetuer adipiscing elit, seding nonummy nibh euismod.
+    		</div>
+    	</div>
+    </div>
+	
 	<div class="nav">
     <a class="active" a href="#"><i class="fas fa-home"></i></a>
     <a href="#"><i class="fas fa-concierge-bell"></i></a>
@@ -113,59 +145,4 @@ padding-bottom: 20px;
 	<br>
 	<div class="footer">made in india with love.</div>
 </body>
-<script>
-	$(function() {
-  
-    //modal
-  const modal = $(".modal");
-  const modalToggle = $(".modal-toggle");
-  const modalWrapper = $(".modal-wrapper");
-  const modalHeight = modalWrapper.height();
 
-  //countdown
-  function coundDown() {
-    console.log("countdown");
-    var countdownNumberEl = document.getElementById("countdown-number");
-    var countdown = 5;
-    countdownNumberEl.textContent = countdown;
-    var downloadTimer = setInterval(function() {
-      countdown--; // 5 to 0
-      countdownNumberEl.textContent = countdown;
-
-      if (countdown > 0) {
-        modalToggle.unbind("click", showMConfirmModal);
-      } else {
-        modalToggle.bind("click", showMConfirmModal);
-        clearInterval(downloadTimer);
-        modal.removeClass("is-visible");
-      }
-    }, 1000);
-  }
-
-
-  //show modal
-  function showMConfirmModal(e) {
-    console.log('icon click');
-    const modalPosY = $(document).outerHeight() / 2 - modalHeight/2;
-    modalWrapper.css("margin-top", modalPosY)
-    //fire countedown modal
-    if ($("#count-loading").length) {
-      e.preventDefault();
-      modal.addClass('is-visible');
-      coundDown();
-    }else{
-      //fire confirm modal
-      e.preventDefault();
-      modal.toggleClass('is-visible');
-    }
-  }
-
-  modalToggle.click(showMConfirmModal);
-  
-  $(".btn-cancel").click(function(e) {
-    modal.removeClass("is-visible");
-  });
-});
-
-	
-</script>
